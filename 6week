@@ -1,0 +1,30 @@
+import random
+
+# 랜덤 숫자 하나 
+def getNumber():
+    return random.randrange(1, 46)
+
+# 로또 번호 저장할 리스트
+lotto = []
+num = 0
+
+print("로또 번호 추첨 시작!\n")
+
+# 번호 6개 뽑을 때까지 반복
+while True:
+    num = getNumber()
+
+    # 중복 아니면 리스트에 추가
+    if num not in lotto:
+        lotto.append(num)
+
+    # 6개 다 뽑으면 종료
+    if len(lotto) == 6:
+        break
+
+# 정렬해서 보기좋게 출력
+lotto.sort()
+
+print("추첨된 로또번호:", end=' ')
+for i in lotto:
+    print(i, end=' ')
