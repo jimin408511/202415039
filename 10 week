@@ -1,0 +1,88 @@
+import numpy as np
+import matplotlib.pyplot as plt
+
+months = np.arange(1, 13)
+num_cases = [11, 2920, 6636, 750, 615, 1141, 1044, 5473, 3707, 2444, 7324, 26198]
+cum_cases = np.cumsum(num_cases)
+
+plt.figure(figsize=(5, 3))
+plt.plot(months, num_cases, label='number of cases')
+plt.plot(months, cum_cases, label='accumulated number of cases')
+plt.xlabel('month')
+plt.legend()
+plt.show()
+
+
+
+
+import numpy as np
+import matplotlib.pyplot as plt
+
+plt.figure(figsize=(5, 3))
+for i in range(3):
+
+    coin = np.random.randint(0, 2, 5000)
+    ind = np.arange(1, len(coin)+1)
+    p_c = np.cumsum(coin)/ind*100
+    plt.plot(ind, p_c)
+
+plt.ylim(0,100)
+plt.ylabel('%')
+plt.show()
+
+
+
+
+
+import numpy as np
+import matplotlib.pyplot as plt
+
+year = [2012,2013,2014,2015,2016,2017,2018,2019,2020,2021]
+boy = [248958,223883,223356,224906,208064,184308,167686,155416,139362,133516]
+girl = [235592,212572,212079,213514,198179,173463,159136,147260,132975,127046]
+
+ind = np.arange(len(year))
+
+w = 0.4
+plt.figure(figsize=(6, 3.5))
+
+plt.bar(ind-w/2, boy, color='b', width=w, label='boy')
+plt.bar(ind+w/2, girl, color='r', width=w, label='girl')
+
+plt.xticks(ind, year)
+plt.legend()
+
+plt.xlabel('year')
+plt.ylabel('number of births')
+
+plt.show()
+
+
+
+
+
+import numpy as np
+import matplotlib.pyplot as plt
+
+year = [2012,2013,2014,2015,2016,2017,2018,2019,2020,2021]
+boy = np.array([248958,223883,223356,224906,208064,184308,167686,155416,139362,
+133516])
+girl = np.array([235592,212572,212079,213514,198179,173463,159136,147260,132975,
+127046])
+
+ind = np.arange(len(year))
+
+plt.figure(figsize=(6, 3.5))
+
+plt.bar(ind, boy, color='b', label='boy')
+plt.bar(ind, girl, bottom=boy, color='r', label='girl')
+
+plt.xticks(ind, year)
+plt.legend()
+
+plt.xlabel('year')
+plt.ylabel('number of births')
+
+plt.show()
+
+
